@@ -10,8 +10,9 @@ import { Link } from "react-router-dom";
 function Header() {
    const authContext = useAuth();
    const { isLogged } = authContext;
-   const storageToken = localStorage.getItem("tokenObj") || "";
-   const userName = JSON.parse(storageToken).name;
+   const storageToken = localStorage?.getItem("tokenObj") || "";
+   const userName = JSON.parse(storageToken)?.name;
+
    return (
       <header className={`${styles.header} `}>
          <nav>
@@ -24,9 +25,11 @@ function Header() {
             </ul>
 
             <span>
-               <div className={`${styles.userName} `}>
-                  <p>{userName.toUpperCase()}</p>
-               </div>
+               {isLogged && (
+                  <div className={`${styles.userName} `}>
+                     {/* <p>{userName.toUpperCase()}</p> */}
+                  </div>
+               )}
                {isLogged && (
                   <Link to="/profile" className={styles.userAvatarIcon}>
                      <img
