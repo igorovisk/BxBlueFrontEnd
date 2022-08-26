@@ -31,7 +31,7 @@ function WalletCardList({ money, setMoney }: WalletCardList) {
    useEffect(() => {
       (async function () {
          await axios
-            .get("http://localhost:3000/transactions", {
+            .get("https://bxmonbackend.herokuapp.com/transactions", {
                headers: {
                   ["x-access-token"]: token,
                },
@@ -44,7 +44,7 @@ function WalletCardList({ money, setMoney }: WalletCardList) {
 
    async function handleSellSubmit(transactionId: string) {
       const transactionResponse = await axios.post(
-         "http://localhost:3000/transactions/pokemon/sell",
+         "https://bxmonbackend.herokuapp.com/transactions/pokemon/sell",
          { transactionId },
          {
             headers: {

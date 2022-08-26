@@ -27,7 +27,7 @@ export const AuthProvider = (props: any) => {
    async function handleLogin(email: string, password: string) {
       try {
          await axios
-            .post("http://localhost:3000/login", {
+            .post("https://bxmonbackend.herokuapp.com/login", {
                email: email,
                password: password,
             })

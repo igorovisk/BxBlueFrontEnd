@@ -13,11 +13,14 @@ function WalletPage() {
    const [money, setMoney] = useState<number>(0);
 
    async function getMoney() {
-      const res = await axios.get("http://localhost:3000/users/wallet", {
-         headers: {
-            ["x-access-token"]: token,
-         },
-      });
+      const res = await axios.get(
+         "https://bxmonbackend.herokuapp.com/users/wallet",
+         {
+            headers: {
+               ["x-access-token"]: token,
+            },
+         }
+      );
       const money = res.data.money;
       setMoney(money);
    }

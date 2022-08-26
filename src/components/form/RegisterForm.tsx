@@ -43,7 +43,7 @@ function RegisterForm() {
       };
       try {
          const addUserToDatabase = await axios
-            .post("http://localhost:3000/users/", newUser)
+            .post("https://bxmonbackend.herokuapp.com/users/", newUser)
             .then((res) => {
                setModalText("Usuário registrado com sucesso :D");
                setIsOpen(true);

@@ -45,7 +45,7 @@ function WalletCard({
          try {
             if (baseExperience !== undefined) {
                await axios
-                  .post(`http://localhost:3000/pokemons/`, {
+                  .post(`https://bxmonbackend.herokuapp.com/pokemons/`, {
                      id: pokemonId,
                      baseExperience: baseExperience,
                   })

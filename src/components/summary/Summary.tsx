@@ -28,7 +28,7 @@ function Summary() {
    useEffect(() => {
       (async function () {
          await axios
-            .get("http://localhost:3000/transactions", {
+            .get("https://bxmonbackend.herokuapp.com/transactions", {
                headers: {
                   ["x-access-token"]: token,
                },

@@ -15,7 +15,9 @@ function CardList({ money, setMoney }: Props) {
    const [isLoading, setIsLoading] = useState<boolean>(true);
 
    async function getPokemons() {
-      const res = await axios.get("http://localhost:3000/pokemons");
+      const res = await axios.get(
+         "https://bxmonbackend.herokuapp.com/pokemons"
+      );
       setPokemons(res.data.pokemonList);
       setIsLoading(false);
    }
@@ -25,7 +27,7 @@ function CardList({ money, setMoney }: Props) {
       const token = storageToken();
 
       const transactionResponse = await axios.post(
-         "http://localhost:3000/transactions/pokemon/buy",
+         "https://bxmonbackend.herokuapp.com/transactions/pokemon/buy",
          payload,
          {
             headers: {
