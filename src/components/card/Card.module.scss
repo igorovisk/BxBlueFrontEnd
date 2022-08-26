@@ -6,11 +6,10 @@
    min-width: 200px;
    padding: 0 24px;
    gap: 16px;
-   height: 300px;
+   height: 400px;
    align-items: center;
    border: 1px solid rgb(132, 201, 238);
    justify-content: space-around;
-
    border-radius: 20px;
 
    @media (max-width: 735px) {
@@ -22,15 +21,15 @@
 .infoContainer {
    display: flex;
    flex-direction: column;
-   gap: 34px;
-
-   align-items: flex-end;
+   gap: 10px;
 }
 
 .pokemonInformation {
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
+   gap: 10px;
 
    h3 {
       color: var(--blue);
@@ -39,11 +38,12 @@
    }
    p {
       font-size: 14px;
+      font-weight: 700;
       padding: 5px;
-      background-color: green;
+      background-color: rgb(167, 172, 167);
       border-radius: 5px;
+      padding: 10px;
       text-align: center;
-
       color: white;
    }
 }
@@ -53,6 +53,8 @@
    align-items: center;
    font-size: 10px;
    gap: 10px;
+   align-items: center;
+   justify-content: center;
 
    img {
       margin-right: 8px;
@@ -60,31 +62,37 @@
 }
 
 .actionButton {
-   padding: 10px;
+   padding: 20px;
    border-radius: 10px;
-
-   &:hover {
-      cursor: pointer;
-   }
-}
-.buy {
+   font-weight: 700;
    color: white;
    background-color: var(--green);
-}
-
-.sell {
-   color: white;
-   background-color: var(--blue);
+   font-size: 18px;
+   &:hover {
+      cursor: pointer;
+      transition: 0.4s ease;
+      background-color: rgb(62, 221, 62);
+   }
 }
 
 .moreInfo {
    display: flex;
    justify-content: center;
-   gap: 10px;
+   align-items: center;
    text-align: left;
-   padding: 5px;
+   gap: 10px;
    color: black;
 
+   span {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+   }
+   h2 {
+      background-color: var(--blue);
+      border-radius: 10px;
+      padding: 10px;
+   }
    p {
       border-radius: 20px;
       padding: 5px;
@@ -102,9 +110,8 @@
 }
 
 .pokemonTypes {
-   background-color: black;
+   background-color: rgb(243, 238, 238);
    padding: 10px;
    border-radius: 5px;
-   color: white;
-   gap: 10px;
+   color: rgb(67, 94, 120);
 }

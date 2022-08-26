@@ -35,7 +35,7 @@ function IndexPage() {
          </ButtonGroup>
 
          <span className={styles.BottomImage}>
-            <img src={pokemonImage} alt="pokemon image" />
+            <img src={pokemonImage} alt="pokemon " />
          </span>
          <Footer />
       </div>

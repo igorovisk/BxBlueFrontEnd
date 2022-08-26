@@ -12,7 +12,7 @@ function MainLogo({ src }: Props) {
    const logoSize = src ? "186px" : "142px";
    return (
       <div className={styles.mainLogo}>
-         <img src={logo} width={logoSize} />
+         <img src={logo} width={logoSize} alt="logo" />
       </div>
    );
 }

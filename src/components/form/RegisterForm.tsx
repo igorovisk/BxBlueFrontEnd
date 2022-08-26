@@ -3,7 +3,7 @@ import Button from "../button/singleButton";
 import Input from "../input/index";
 import styles from "./Form.module.scss";
 import Modal from "react-modal";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 
 function RegisterForm() {
    const [email, setEmail] = useState<string>("");
@@ -42,7 +42,7 @@ function RegisterForm() {
          password: password,
       };
       try {
-         const addUserToDatabase = await axios
+         await axios
             .post("https://bxmonbackend.herokuapp.com/users/", newUser)
             .then((res) => {
                setModalText("Usuário registrado com sucesso :D");

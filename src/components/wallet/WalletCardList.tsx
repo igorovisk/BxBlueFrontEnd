@@ -1,16 +1,16 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../button/singleButton";
 import styles from "../card/CardList.module.scss";
 import { storageToken } from "../../contexts/authContext";
 import WalletCard from "./WalletCard";
 
-interface WalletCardList {
+interface Props {
    money?: number;
    setMoney: Dispatch<SetStateAction<number>>;
 }
 
-function WalletCardList({ money, setMoney }: WalletCardList) {
+function WalletCardList({ money, setMoney }: Props) {
    const [transactions, setTransactions] = useState<
       [
          {
@@ -28,19 +28,19 @@ function WalletCardList({ money, setMoney }: WalletCardList) {
 
    const token = storageToken();
 
-   useEffect(() => {
-      (async function () {
-         await axios
-            .get("https://bxmonbackend.herokuapp.com/transactions", {
-               headers: {
-                  ["x-access-token"]: token,
-               },
-            })
-            .then((res) => {
-               setTransactions(res.data);
-            });
-      })();
-   }, []);
+   async function getTransactions() {
+      const res = await axios.get(
+         "https://bxmonbackend.herokuapp.com/transactions",
+         {
+            headers: {
+               ["x-access-token"]: token,
+            },
+         }
+      );
+
+      setTransactions(res.data);
+   }
+   getTransactions();
 
    async function handleSellSubmit(transactionId: string) {
       const transactionResponse = await axios.post(

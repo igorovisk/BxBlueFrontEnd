@@ -5,6 +5,11 @@
    align-items: center;
    justify-content: center;
    background-color: var(--green);
+
+   span {
+      display: flex;
+      gap: 40px;
+   }
 }
 
 nav {
@@ -14,8 +19,4 @@ nav {
    padding: 40px 40px;
    align-items: center;
    justify-content: space-between;
-}
-span {
-   display: flex;
-   gap: 40px;
 }

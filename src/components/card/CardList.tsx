@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 import Button from "../button/singleButton";
 import Card from "./Card";
@@ -37,7 +37,8 @@ function CardList({ money, setMoney }: Props) {
       );
 
       const diff = money - transactionResponse.data.acquisitionUSDValue;
-      setMoney(money - diff);
+      const updatedMoney = money - diff;
+      setMoney(() => updatedMoney);
    }
 
    return (

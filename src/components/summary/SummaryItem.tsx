@@ -1,6 +1,3 @@
-import axios from "axios";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { storageToken } from "src/contexts/authContext";
 import styles from "./Summary.module.scss";
 
 interface CardProps {

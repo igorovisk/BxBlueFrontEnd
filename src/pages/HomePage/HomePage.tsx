@@ -4,7 +4,7 @@ import TextSection from "../../components/textSection";
 import MainLogo from "../../components/mainLogo";
 import styles from "./HomePage.module.scss";
 import CardList from "../../components/card/CardList";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { storageToken } from "../../contexts/authContext";
 import MainLogoImage from "../../assets/images/BxMon.png";

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import Button from "../button/singleButton";
+
 import styles from "./Summary.module.scss";
 import { storageToken } from "../../contexts/authContext";
 
@@ -8,6 +8,7 @@ import SummaryItem from "./SummaryItem";
 
 function Summary() {
    const [filter, setFilter] = useState<string>("all");
+   const [isLoading, setIsLoading] = useState<boolean>(true);
    const [transactions, setTransactions] = useState<
       [
          {
@@ -25,20 +26,19 @@ function Summary() {
 
    const token = storageToken();
 
-   useEffect(() => {
-      (async function () {
-         await axios
-            .get("https://bxmonbackend.herokuapp.com/transactions", {
-               headers: {
-                  ["x-access-token"]: token,
-               },
-            })
-            .then((res) => {
-               setTransactions(res.data);
-            });
-      })();
-   }, []);
-
+   async function getTransactions() {
+      const res = await axios.get(
+         "https://bxmonbackend.herokuapp.com/transactions",
+         {
+            headers: {
+               ["x-access-token"]: token,
+            },
+         }
+      );
+      setIsLoading(false);
+      setTransactions(res.data);
+   }
+   getTransactions();
    const buyTransactions = transactions?.filter((transaction) => {
       return !transaction.sellDate;
    });
@@ -47,7 +47,7 @@ function Summary() {
       return transaction.sellDate;
    });
 
-   return (
+   return !isLoading ? (
       <div className={styles.container}>
          <span className={styles.buttonGroup}>
             <button
@@ -124,6 +124,11 @@ function Summary() {
                })}
          </ul>
       </div>
+   ) : (
+      <span className={styles.loading}>
+         {" "}
+         <p>"Carregando negociações..."</p>{" "}
+      </span>
    );
 }
 

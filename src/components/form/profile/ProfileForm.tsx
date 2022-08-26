@@ -7,31 +7,19 @@ import defaultAvatar from "../../../assets/images/UserAvatarIcon.svg";
 import { ChangeEvent, useState } from "react";
 
 function ProfilePage() {
-   function getIniitialInfo() {}
-
    const [email, setEmail] = useState<string>();
-   const [image, setImage] = useState<string>();
-   const [name, setName] = useState<string>();
-
-   const handleFormSubmit = () => {
-      console.log("Not ready");
-   };
-   const handleImageUpload = () => {};
 
    return (
       <form onSubmit={() => {}} className={styles.form}>
          <h4> Perfil</h4>
          <label htmlFor="profilePicture">Foto</label>
-         <img
-            src={defaultAvatar}
-            onClick={() => handleImageUpload}
-            alt="profile picture"
-         />
+         <img src={defaultAvatar} onClick={() => {}} alt="profile" />
          <input
             className={styles.profileInput}
             id="profilePicture"
             name="profilePicture"
             type="image"
+            alt="image"
          ></input>
          <p>Clique na foto para editar</p>
          <label htmlFor="name">Nome</label>

@@ -1,6 +1,5 @@
 .summaryContainer {
    display: flex;
-
    color: black;
    text-align: center;
    align-items: center;
@@ -19,6 +18,12 @@
    border-radius: 20px;
    width: 240px;
    background-color: var(--blue);
+
+   &:hover {
+      cursor: pointer;
+      background-color: blue;
+      transition: all 0.4s;
+   }
 }
 .list {
    display: flex;
@@ -35,5 +40,19 @@
    }
    p {
       font-weight: bold;
+   }
+}
+
+.loading {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 10px;
+   p {
+      text-align: center;
+      padding: 20px;
+      width: 200px;
+      border-radius: 10px;
+      background-color: green;
    }
 }

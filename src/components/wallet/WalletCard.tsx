@@ -1,7 +1,7 @@
 import axios from "axios";
-import { sensitiveHeaders } from "http2";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { storageToken } from "src/contexts/authContext";
+
+import { useState } from "react";
+
 import styles from "../card/Card.module.scss";
 
 interface CardProps {
@@ -40,24 +40,23 @@ function WalletCard({
       setIsSold(true);
    }
 
-   useEffect(() => {
-      (async function getPokemonInfo() {
-         try {
-            if (baseExperience !== undefined) {
-               await axios
-                  .post(`https://bxmonbackend.herokuapp.com/pokemons/`, {
-                     id: pokemonId,
-                     baseExperience: baseExperience,
-                  })
-                  .then((res) => {
-                     setPokemonInfo(res?.data);
-                  });
-            }
-         } catch (err) {
-            console.log(err, "ERR");
+   async function getPokemonInfo() {
+      try {
+         if (baseExperience !== undefined) {
+            const res = await axios.post(
+               `https://bxmonbackend.herokuapp.com/pokemons/`,
+               {
+                  id: pokemonId,
+                  baseExperience: baseExperience,
+               }
+            );
+            setPokemonInfo(res?.data);
          }
-      })();
-   }, []);
+      } catch (err) {
+         console.log(err, "ERR");
+      }
+   }
+   getPokemonInfo();
 
    const acquisitionDateString = new Date(
       acquisitionDate || ""
@@ -73,19 +72,25 @@ function WalletCard({
                <h3>{pokemonName?.toUpperCase()}</h3>
             </span>
             <span className={styles.moreInfo}>
-               <p>Adquirido em: {acquisitionDateString}</p>
-               <p>Adquirido por: {acquisitionUSDValue?.toFixed(4)} dólares</p>
+               <span>
+                  <h2>Adquirido em: </h2>
+                  <p>{acquisitionDateString}</p>
+               </span>
+               <span>
+                  <h2>Adquirido por (USD): </h2>
+                  <p>{acquisitionUSDValue?.toFixed(7)} </p>
+               </span>
             </span>
             <span className={styles.currentValue}>
-               <p>Valor atual: {pokemonInfo?.pokemonCurrentValue.toFixed(4)}</p>
+               <p>Valor atual: {pokemonInfo?.pokemonCurrentValue.toFixed(7)}</p>
             </span>
 
             <span className={styles.actionButtonsContainer}>
                <button
                   onClick={handleSellTransaction}
-                  className={`${styles.actionButton} ${styles.buy}`}
+                  className={`${styles.actionButton} ${styles.sell}`}
                >
-                  $ Vender
+                  $ Vender Pokemon
                </button>
             </span>
          </span>

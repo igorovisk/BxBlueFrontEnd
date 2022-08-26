@@ -31,25 +31,25 @@ function Card({
    return (
       <div className={styles.card}>
          <span className={styles.imageContainer}>
-            <img src={pokemonImage}></img>
+            <img src={pokemonImage} alt="pokemon"></img>
          </span>
          <span className={styles.infoContainer}>
             <span className={styles.pokemonInformation}>
                <h3>{pokemonName?.toUpperCase()}</h3>
-
+               <span className={styles.pokemonTypes}>
+                  {types.map((type) => {
+                     return <span>| {type} |</span>;
+                  })}
+               </span>
                <p>Valor do pokemon: U$ {pokemonCurrentValue?.toFixed(2)}</p>
             </span>
-            <span className={styles.pokemonTypes}>
-               {types.map((type) => {
-                  return <span>{type}</span>;
-               })}
-            </span>
+
             <span className={styles.actionButtonsContainer}>
                <button
                   onClick={handleBuyTransaction}
                   className={`${styles.actionButton} ${styles.buy}`}
                >
-                  Comprar
+                  $ Comprar
                </button>
             </span>
          </span>

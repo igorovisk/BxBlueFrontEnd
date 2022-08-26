@@ -1,10 +1,10 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import TextSection from "../../components/textSection";
-import MainLogo from "../../components/mainLogo";
+
 import styles from "./WalletPage.module.scss";
 import WalletCardList from "src/components/wallet/WalletCardList";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { storageToken } from "src/contexts/authContext";
 

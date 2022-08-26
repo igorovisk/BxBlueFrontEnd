@@ -17,7 +17,7 @@ function Header() {
             <ul>
                <li>
                   <a href="/" className={styles.homeIcon}>
-                     <img src={HomeIcon}></img>
+                     <img src={HomeIcon} alt="Home Icon"></img>
                   </a>
                </li>
             </ul>
