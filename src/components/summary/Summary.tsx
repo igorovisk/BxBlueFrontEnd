@@ -5,6 +5,7 @@ import styles from "./Summary.module.scss";
 import { storageToken } from "../../contexts/authContext";
 
 import SummaryItem from "./SummaryItem";
+import { useEffectOnce } from "usehooks-ts";
 
 function Summary() {
    const [filter, setFilter] = useState<string>("all");
@@ -38,7 +39,11 @@ function Summary() {
       setIsLoading(false);
       setTransactions(res.data);
    }
-   getTransactions();
+
+   useEffectOnce(() => {
+      getTransactions();
+   });
+
    const buyTransactions = transactions?.filter((transaction) => {
       return !transaction.sellDate;
    });
