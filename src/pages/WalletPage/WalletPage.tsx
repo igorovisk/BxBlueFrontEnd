@@ -4,27 +4,17 @@ import TextSection from "../../components/textSection";
 
 import styles from "./WalletPage.module.scss";
 import WalletCardList from "src/components/wallet/WalletCardList";
-import { useState } from "react";
-import axios from "axios";
-import { storageToken } from "src/contexts/authContext";
+import { useEffect, useState } from "react";
+import getUserMoneyFromDb from "src/utils/getMoney";
 
 function WalletPage() {
-   const token = storageToken();
    const [money, setMoney] = useState<number>(0);
 
-   async function getMoney() {
-      const res = await axios.get(
-         "https://bxmonbackend.herokuapp.com/users/wallet",
-         {
-            headers: {
-               ["x-access-token"]: token,
-            },
-         }
-      );
-      const money = res.data.money;
-      setMoney(money);
-   }
-   getMoney();
+   useEffect(() => {
+      getUserMoneyFromDb().then((res) => {
+         setMoney(res);
+      });
+   }, [money]);
 
    return (
       <div className={styles.WalletPageIndex}>

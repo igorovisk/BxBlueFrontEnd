@@ -11,6 +11,7 @@ interface Props {
 }
 
 function WalletCardList({ money, setMoney }: Props) {
+   const token = storageToken();
    const [transactions, setTransactions] = useState<
       [
          {
@@ -25,8 +26,6 @@ function WalletCardList({ money, setMoney }: Props) {
          }
       ]
    >();
-
-   const token = storageToken();
 
    async function getTransactions() {
       const res = await axios.get(
@@ -52,13 +51,18 @@ function WalletCardList({ money, setMoney }: Props) {
             },
          }
       );
-
-      const diff = money + transactionResponse.data.acquisitionUSDValue;
-      setMoney(money + diff);
+      if (money) {
+         const diff = money + transactionResponse.data.acquisitionUSDValue;
+         setMoney(Number(diff));
+         console.log(money);
+      }
    }
-   const filteredTransactions = transactions?.filter(
-      (transaction) => !transaction?.sellDate
-   );
+   let filteredTransactions;
+   if (transactions) {
+      filteredTransactions = transactions?.filter(
+         (transaction) => !transaction?.sellDate
+      );
+   }
 
    return (
       <div className={styles.container}>

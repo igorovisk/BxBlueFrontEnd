@@ -8,7 +8,7 @@ import styles from "./CardList.module.scss";
 import { useEffectOnce } from "usehooks-ts";
 
 interface Props {
-   money: number;
+   money?: number;
    setMoney: Dispatch<SetStateAction<number>>;
 }
 function CardList({ money, setMoney }: Props) {
@@ -35,14 +35,16 @@ function CardList({ money, setMoney }: Props) {
             },
          }
       );
+      if (money) {
+         const updatedMoney =
+            money - transactionResponse.data.acquisitionUSDValue;
 
-      const diff = money - transactionResponse.data.acquisitionUSDValue;
-      const updatedMoney = money - diff;
-      setMoney(() => updatedMoney);
+         setMoney(updatedMoney);
+      }
    }
-   useEffectOnce(() => {
-      getPokemons();
-   });
+
+   getPokemons();
+
    return (
       <div className={styles.container}>
          {!isLoading ? (

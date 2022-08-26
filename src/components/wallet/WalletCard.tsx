@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useEffectOnce } from "usehooks-ts";
 
 import styles from "../card/Card.module.scss";
@@ -35,8 +35,8 @@ function WalletCard({
    }>();
 
    async function handleSellTransaction() {
-      console.log(transactionId);
       handleSellSubmit(transactionId);
+      setIsSold(true);
    }
 
    async function getPokemonInfo() {
@@ -49,6 +49,7 @@ function WalletCard({
                   baseExperience: baseExperience,
                }
             );
+            console.log(res.data, "RES DARA");
             setPokemonInfo(res?.data);
          }
       } catch (err) {
@@ -60,9 +61,9 @@ function WalletCard({
       acquisitionDate || ""
    ).toLocaleDateString();
 
-   useEffectOnce(() => {
+   useEffect(() => {
       getPokemonInfo();
-   });
+   }, [pokemonId]);
 
    return !isSold ? (
       <div className={styles.card}>
