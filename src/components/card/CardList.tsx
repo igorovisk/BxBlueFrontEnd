@@ -5,7 +5,7 @@ import Button from "../button/singleButton";
 import Card from "./Card";
 import { storageToken } from "../../contexts/authContext";
 import styles from "./CardList.module.scss";
-import { useEffectOnce } from "usehooks-ts";
+import { toast, ToastContainer } from "react-toastify";
 
 interface Props {
    money?: number;
@@ -41,6 +41,7 @@ function CardList({ money, setMoney }: Props) {
 
          setMoney(updatedMoney);
       }
+      toast.success("Pokémon comprado!");
    }
 
    getPokemons();

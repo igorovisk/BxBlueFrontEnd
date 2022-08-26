@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import IndexPage from "./pages/IndexPage/IndexPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
+import { ToastContainer, toast, Zoom, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterPageIndex from "./pages/RegisterPage/RegisterPage";
 
@@ -15,6 +16,17 @@ import SummaryPage from "./pages/SummaryPage/SummaryPage";
 function App() {
    return (
       <BrowserRouter>
+         <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+         />
          <Routes>
             <Route path="/" element={<IndexPage />}></Route>
 

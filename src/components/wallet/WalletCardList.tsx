@@ -1,10 +1,11 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios";
 import Button from "../button/singleButton";
 import styles from "../card/CardList.module.scss";
 import { storageToken } from "../../contexts/authContext";
 import WalletCard from "./WalletCard";
 import { useEffectOnce } from "usehooks-ts";
+import { toast, ToastContainer } from "react-toastify";
 
 interface Props {
    money?: number;
@@ -58,6 +59,7 @@ function WalletCardList({ money, setMoney }: Props) {
          const diff = money + transactionResponse.data.acquisitionUSDValue;
          setMoney(Number(diff));
       }
+      toast.success("Pokémon vendido");
    }
    let filteredTransactions;
    if (transactions) {
@@ -68,6 +70,7 @@ function WalletCardList({ money, setMoney }: Props) {
 
    return (
       <div className={styles.container}>
+         <ToastContainer></ToastContainer>
          <ul className={styles.cardList}>
             {filteredTransactions?.map((buyTransaction) => {
                return (
