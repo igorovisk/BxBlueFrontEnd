@@ -71,7 +71,7 @@ function Summary() {
                className={styles.filterButton}
                onClick={() => setFilter("all")}
             >
-               Meus pokemons
+               Todas as negociações
             </button>
          </span>
 

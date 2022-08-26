@@ -11,17 +11,6 @@ function Header() {
    const authContext = useAuth();
    const { isLogged } = authContext;
 
-   function getName() {
-      try {
-         const storageToken = localStorage?.getItem("tokenObj") || "";
-         const userName = JSON.parse(storageToken)?.name || "";
-         return userName;
-      } catch (err) {
-         console.log(err);
-      }
-   }
-   const userName = getName();
-
    return (
       <header className={`${styles.header} `}>
          <nav>
@@ -34,11 +23,6 @@ function Header() {
             </ul>
 
             <span>
-               {isLogged && (
-                  <div className={`${styles.userName} `}>
-                     <p>{userName.toUpperCase()}</p>
-                  </div>
-               )}
                {isLogged && (
                   <Link to="/profile" className={styles.userAvatarIcon}>
                      <img
