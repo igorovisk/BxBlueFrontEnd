@@ -4,6 +4,7 @@ import Button from "../button/singleButton";
 import styles from "../card/CardList.module.scss";
 import { storageToken } from "../../contexts/authContext";
 import WalletCard from "./WalletCard";
+import { useEffectOnce } from "usehooks-ts";
 
 interface Props {
    money?: number;
@@ -39,7 +40,9 @@ function WalletCardList({ money, setMoney }: Props) {
 
       setTransactions(res.data);
    }
-   getTransactions();
+   useEffectOnce(() => {
+      getTransactions();
+   });
 
    async function handleSellSubmit(transactionId: string) {
       const transactionResponse = await axios.post(
@@ -54,7 +57,6 @@ function WalletCardList({ money, setMoney }: Props) {
       if (money) {
          const diff = money + transactionResponse.data.acquisitionUSDValue;
          setMoney(Number(diff));
-         console.log(money);
       }
    }
    let filteredTransactions;

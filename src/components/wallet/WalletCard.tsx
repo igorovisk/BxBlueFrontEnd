@@ -36,6 +36,7 @@ function WalletCard({
 
    async function handleSellTransaction() {
       handleSellSubmit(transactionId);
+      console.log(handleSellSubmit(transactionId));
       setIsSold(true);
    }
 
@@ -63,7 +64,7 @@ function WalletCard({
 
    useEffect(() => {
       getPokemonInfo();
-   }, [pokemonId]);
+   }, [pokemonInfo?.pokemonCurrentValue]);
 
    return !isSold ? (
       <div className={styles.card}>
