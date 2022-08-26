@@ -1,0 +1,71 @@
+.form {
+   display: flex;
+   position: relative;
+   flex-direction: column;
+   align-items: center;
+   background-color: var(--lightGray);
+   min-width: 312px;
+   z-index: 1;
+
+   width: 312px;
+   border-radius: 10px;
+   margin: auto auto 30px auto;
+   padding: 32px 16px;
+}
+
+.form h4 {
+   font-weight: 600;
+   font-size: 21px;
+   margin-bottom: 8px;
+   color: var(--darkGray);
+}
+
+.form img {
+   width: 80px !important;
+   height: 80px;
+   margin-bottom: 8px;
+   border-radius: 50% !important;
+}
+
+.profileInput {
+   display: none;
+}
+
+.form p {
+   font-weight: 400;
+   color: var(--coral);
+   font-size: 12px;
+}
+
+.form button {
+   margin-top: 32px;
+}
+
+.form label {
+   width: 100%;
+   color: var(--darkGray);
+   margin: 16px 0 8px 0;
+   text-align: left;
+   color: var(--blue);
+   font-weight: 600;
+}
+
+.form input {
+   border: none;
+   padding: 12px 16px;
+   border-radius: 6px;
+   width: 280px;
+}
+
+.form textarea {
+   border: none;
+   padding: 12px 16px;
+   border-radius: 6px;
+   max-width: 280px;
+   width: 280px;
+   color: var(--mediumGray);
+   background-color: white !important;
+   font-size: 16px;
+   font-family: "poppins", sans-serif;
+   opacity: 1; /* Firefox */
+}

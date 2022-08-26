@@ -1,0 +1,110 @@
+.card {
+   display: flex;
+   flex-direction: row;
+   background-color: var(--lightGray);
+   max-width: 360px;
+   min-width: 200px;
+   padding: 0 24px;
+   gap: 16px;
+   height: 300px;
+   align-items: center;
+   border: 1px solid rgb(132, 201, 238);
+   justify-content: space-around;
+
+   border-radius: 20px;
+
+   @media (max-width: 735px) {
+      margin: auto;
+      // width: 90vw;
+   }
+}
+
+.infoContainer {
+   display: flex;
+   flex-direction: column;
+   gap: 34px;
+
+   align-items: flex-end;
+}
+
+.pokemonInformation {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   h3 {
+      color: var(--blue);
+      font-size: 16px;
+      font-weight: 700;
+   }
+   p {
+      font-size: 14px;
+      padding: 5px;
+      background-color: green;
+      border-radius: 5px;
+      text-align: center;
+
+      color: white;
+   }
+}
+
+.actionButtonsContainer {
+   display: flex;
+   align-items: center;
+   font-size: 10px;
+   gap: 10px;
+
+   img {
+      margin-right: 8px;
+   }
+}
+
+.actionButton {
+   padding: 10px;
+   border-radius: 10px;
+
+   &:hover {
+      cursor: pointer;
+   }
+}
+.buy {
+   color: white;
+   background-color: var(--green);
+}
+
+.sell {
+   color: white;
+   background-color: var(--blue);
+}
+
+.moreInfo {
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   text-align: left;
+   padding: 5px;
+   color: black;
+
+   p {
+      border-radius: 20px;
+      padding: 5px;
+   }
+}
+
+.currentValue {
+   p {
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: var(--blue);
+      text-align: center;
+   }
+}
+
+.pokemonTypes {
+   background-color: black;
+   padding: 10px;
+   border-radius: 5px;
+   color: white;
+   gap: 10px;
+}

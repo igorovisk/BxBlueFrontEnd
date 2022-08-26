@@ -1,0 +1,21 @@
+.header {
+   display: flex;
+   color: var(--darkGray);
+   width: 100vw;
+   align-items: center;
+   justify-content: center;
+   background-color: var(--green);
+}
+
+nav {
+   display: flex;
+   width: 100%;
+   margin: auto;
+   padding: 40px 40px;
+   align-items: center;
+   justify-content: space-between;
+}
+span {
+   display: flex;
+   gap: 40px;
+}

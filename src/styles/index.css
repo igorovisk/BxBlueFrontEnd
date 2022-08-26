@@ -1,0 +1,239 @@
+:root {
+   --blue: #3772ff;
+   --green: #36d6ad;
+   --coral: #fc7071;
+   --cream: #fcf0e3;
+   --darkGray: #737380;
+   --mediumGray: #bcbcbc;
+   --lightGray: #f7f7f7;
+}
+::placeholder {
+   /* Chrome, Firefox, Opera, Safari 10.1+ */
+   color: #bcbcbc;
+   opacity: 1; /* Firefox */
+   font-size: 12px;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   font-size: 100%;
+   font: inherit;
+   vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+   display: block;
+}
+body {
+   line-height: 1;
+}
+ol,
+ul {
+   list-style: none;
+}
+blockquote,
+q {
+   quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+   content: "";
+   content: none;
+}
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+}
+
+input {
+   font-family: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+   color: inherit;
+}
+
+button {
+   border: unset;
+   background-color: unset;
+   font-family: inherit;
+   font-size: inherit;
+   font-weight: inherit;
+   color: inherit;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Manjari&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&family=Poppins:wght@400;600&display=swap");
+
+body {
+   display: flex;
+   justify-content: center;
+   font-family: "Poppins", sans-serif;
+   color: #f0f0f0;
+   background-color: #fff;
+   height: 100%;
+   width: 100%;
+
+   box-sizing: border-box;
+}
+html {
+   width: 100vw;
+}
+a {
+   text-decoration: none;
+   color: inherit;
+}
+#root {
+   width: 100%;
+}
+
+::-webkit-scrollbar {
+   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: unset;
+}
+
+::-webkit-scrollbar-thumb {
+   border-radius: 4px;
+   background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #555;
+}
+
+.react-modal-overlay {
+   background-color: rgb(0, 0, 0, 0.5);
+   display: flex;
+   z-index: 10000;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   align-items: center;
+   justify-content: center;
+}
+
+.react-modal-content {
+   max-width: 576px;
+   width: 100%;
+   background-color: rgb(0, 0, 0, 0.5);
+   padding: 3rem;
+   position: relative;
+   border-radius: 0.25rem;
+   animation-delay: 2s;
+   transition: all ease 10s;
+   z-index: 10000;
+   text-align: center;
+}
+
+.react-modal-content-animation {
+   animation: fadeIn 1s;
+
+   @keyframes fadeIn {
+      0% {
+         opacity: 0;
+         transform: scale(0.5);
+      }
+      100% {
+         opacity: 1;
+         transform: scale(1);
+      }
+   }
+}
