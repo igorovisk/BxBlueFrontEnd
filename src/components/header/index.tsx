@@ -10,8 +10,18 @@ import { Link } from "react-router-dom";
 function Header() {
    const authContext = useAuth();
    const { isLogged } = authContext;
-   const storageToken = localStorage?.getItem("tokenObj") || "";
-   const userName = JSON.parse(storageToken)?.name;
+
+   function getName() {
+      try {
+         const storageToken = localStorage?.getItem("tokenObj") || "";
+         const userName = JSON.parse(storageToken)?.name || "";
+         return userName;
+      } catch (err) {
+         console.log(err);
+      }
+   }
+   const userName = getName();
+   console.log(userName);
 
    return (
       <header className={`${styles.header} `}>
