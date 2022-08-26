@@ -59,7 +59,7 @@ function Summary() {
                className={styles.filterButton}
                onClick={() => setFilter("buy")}
             >
-               Ver compras
+               Meus pokémons
             </button>
             <button
                className={styles.filterButton}
@@ -71,7 +71,7 @@ function Summary() {
                className={styles.filterButton}
                onClick={() => setFilter("all")}
             >
-               Todas operações
+               Meus pokemons
             </button>
          </span>
 
