@@ -36,7 +36,6 @@ function WalletCard({
 
    async function handleSellTransaction() {
       handleSellSubmit(transactionId);
-      console.log(handleSellSubmit(transactionId));
       setIsSold(true);
    }
 
