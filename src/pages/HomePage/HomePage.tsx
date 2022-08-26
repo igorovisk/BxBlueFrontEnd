@@ -18,14 +18,26 @@ function HomePage() {
       });
    });
 
+   function getName() {
+      try {
+         const storageToken = localStorage?.getItem("tokenObj") || "";
+         const userName = JSON.parse(storageToken)?.name || "";
+         return userName;
+      } catch (err) {
+         console.log(err);
+      }
+   }
+   const userName = getName();
    return (
       <div className={styles.HomePageIndex}>
          <Header />
+         <p> ASDJASUIDHAUS</p>
+         <div className={`${styles.userName} `}></div>
          <MainLogo src={MainLogoImage} />
 
          <TextSection
             blueText={true}
-            text="Bem vindo ao BxCoin - PokeCarteira! Veja aqui os pokemons disponíveis para compra!"
+            text={`Bem vindo ao BxCoin - PokeCarteira, ${userName.toUpperCase()}! Veja aqui os pokemons disponíveis para compra!`}
          />
          <div className={styles.userInfo}>
             <h1>Você tem U$ {money?.toFixed(2)}</h1>

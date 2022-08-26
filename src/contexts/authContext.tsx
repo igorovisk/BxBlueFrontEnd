@@ -74,9 +74,12 @@ export const AuthProvider = (props: any) => {
 
 export const storageToken = () => {
    const storageToken = localStorage.getItem("tokenObj") || "";
-   const userToken = JSON.parse(storageToken).token;
+   if (storageToken) {
+      const userToken = JSON.parse(storageToken)?.token;
+      return userToken;
+   }
 
-   return userToken;
+   return "";
 };
 //CUSTOM HOOK TO MAKE IMPORT EASIER. USAGE EXAMPLE: const authcontext = useAuth()
 export const useAuth = () => useContext(AuthContext);
