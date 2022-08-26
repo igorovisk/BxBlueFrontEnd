@@ -11,7 +11,16 @@
       gap: 40px;
    }
 }
-
+.userName {
+   display: flex;
+   color: white;
+   background-color: var(--coral);
+   padding: 10px;
+   border-radius: 10px;
+   p {
+      font-weight: 700;
+   }
+}
 nav {
    display: flex;
    width: 100%;

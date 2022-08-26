@@ -22,7 +22,7 @@ export const AuthContext = createContext({
 //AUTHCONTEXT PROVIDER COMPONENT THAT WILL WRAP THE ENTIRE APP.
 export const AuthProvider = (props: any) => {
    const [isLogged, setIsLogged] = useState<boolean>(checkIfLoggedIn());
-
+   const [userName, setUserName] = useState<string>("");
    // LOGIN FUNCTION TO BE PASSED TO COMPONENTS BY CONTEXT
    async function handleLogin(email: string, password: string) {
       try {
@@ -41,7 +41,7 @@ export const AuthProvider = (props: any) => {
                   auth: res.data.auth,
                   expirationDate: res.data.expirationDate,
                };
-
+               setUserName(res.data.name);
                localStorage.setItem("tokenObj", JSON.stringify(tokenObj));
 
                // window.location.href = "/home";
@@ -61,6 +61,7 @@ export const AuthProvider = (props: any) => {
       handleLogin,
       isLogged,
       handleLogout,
+      userName,
    };
 
    //RETURNS PROVIDER WITH VALUE PROP
