@@ -21,7 +21,6 @@ function Header() {
       }
    }
    const userName = getName();
-   console.log(userName);
 
    return (
       <header className={`${styles.header} `}>
@@ -37,7 +36,7 @@ function Header() {
             <span>
                {isLogged && (
                   <div className={`${styles.userName} `}>
-                     {/* <p>{userName.toUpperCase()}</p> */}
+                     <p>{userName.toUpperCase()}</p>
                   </div>
                )}
                {isLogged && (
