@@ -56,30 +56,29 @@ function WalletCardList({ money, setMoney }: Props) {
       const diff = money + transactionResponse.data.acquisitionUSDValue;
       setMoney(money + diff);
    }
+   const filteredTransactions = transactions?.filter(
+      (transaction) => !transaction?.sellDate
+   );
 
    return (
       <div className={styles.container}>
          <ul className={styles.cardList}>
-            {transactions
-               ?.filter((transaction) => !transaction?.sellDate)
-               ?.map((buyTransaction) => {
-                  return (
-                     <WalletCard
-                        handleSellSubmit={handleSellSubmit}
-                        pokemonId={buyTransaction?.pokemonId}
-                        pokemonName={buyTransaction?.pokemonName}
-                        baseExperience={buyTransaction?.baseExperience}
-                        acquisitionUSDValue={
-                           buyTransaction?.acquisitionUSDValue
-                        }
-                        transactionId={buyTransaction._id}
-                        acquisitionDate={buyTransaction?.acquisitionDate}
-                        btcCurrencyAtAcquisition={
-                           buyTransaction?.btcCurrencyAtAcquisition
-                        }
-                     />
-                  );
-               })}
+            {filteredTransactions?.map((buyTransaction) => {
+               return (
+                  <WalletCard
+                     handleSellSubmit={handleSellSubmit}
+                     pokemonId={buyTransaction?.pokemonId}
+                     pokemonName={buyTransaction?.pokemonName}
+                     baseExperience={buyTransaction?.baseExperience}
+                     acquisitionUSDValue={buyTransaction?.acquisitionUSDValue}
+                     transactionId={buyTransaction._id}
+                     acquisitionDate={buyTransaction?.acquisitionDate}
+                     btcCurrencyAtAcquisition={
+                        buyTransaction?.btcCurrencyAtAcquisition
+                     }
+                  />
+               );
+            })}
          </ul>
          <div className={styles.navigationPagesContainer}>
             <Button type="button">Página Anterior</Button>

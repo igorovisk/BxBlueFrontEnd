@@ -35,7 +35,11 @@ function WalletPage() {
             text="Esta é a sua Carteira de Investimentos"
          />
          <div className={styles.userInfo}>
-            <h1>Você tem U$ {money.toFixed(2)}</h1>
+            <h1>
+               {isNaN(money)
+                  ? "Calculando..."
+                  : `Você tem U$ ${money.toFixed(2)}`}
+            </h1>
          </div>
          <TextSection text="Seus pokemons adquiridos:" />
 

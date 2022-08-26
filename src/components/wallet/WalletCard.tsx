@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { useState } from "react";
+import { useEffectOnce } from "usehooks-ts";
 
 import styles from "../card/Card.module.scss";
 
@@ -11,7 +12,7 @@ interface CardProps {
    baseExperience?: number;
    btcCurrencyAtAcquisition?: number;
    tradeValueAtOperationDate?: number;
-   transactionId?: string;
+   transactionId: string;
    acquisitionUSDValue?: number;
    acquisitionDate?: Date;
    handleSellSubmit: (payload: string) => void;
@@ -27,17 +28,15 @@ function WalletCard({
    handleSellSubmit,
 }: CardProps) {
    const [isSold, setIsSold] = useState<boolean>(false);
+
    const [pokemonInfo, setPokemonInfo] = useState<{
       pokemonImage: string;
       pokemonCurrentValue: number;
    }>();
 
-   const [transactionIdState, setTransactionIdState] =
-      useState<any>(transactionId);
-
    async function handleSellTransaction() {
-      handleSellSubmit(transactionIdState);
-      setIsSold(true);
+      console.log(transactionId);
+      handleSellSubmit(transactionId);
    }
 
    async function getPokemonInfo() {
@@ -56,11 +55,14 @@ function WalletCard({
          console.log(err, "ERR");
       }
    }
-   getPokemonInfo();
 
    const acquisitionDateString = new Date(
       acquisitionDate || ""
    ).toLocaleDateString();
+
+   useEffectOnce(() => {
+      getPokemonInfo();
+   });
 
    return !isSold ? (
       <div className={styles.card}>

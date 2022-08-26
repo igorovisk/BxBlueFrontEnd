@@ -32,7 +32,7 @@ function LoginForm() {
             type="email"
             label="Email"
             value={email}
-            placeholder="Escolha o seu melhor email"
+            placeholder="Email"
             handleChange={handleEmailChange}
          />
 
@@ -41,7 +41,7 @@ function LoginForm() {
             type="password"
             label="Senha"
             value={password}
-            placeholder="Crie uma senha"
+            placeholder="Senha"
             handleChange={handlePasswordChange}
          />
 

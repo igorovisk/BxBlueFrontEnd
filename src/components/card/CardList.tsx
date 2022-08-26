@@ -5,6 +5,7 @@ import Button from "../button/singleButton";
 import Card from "./Card";
 import { storageToken } from "../../contexts/authContext";
 import styles from "./CardList.module.scss";
+import { useEffectOnce } from "usehooks-ts";
 
 interface Props {
    money: number;
@@ -21,7 +22,6 @@ function CardList({ money, setMoney }: Props) {
       setPokemons(res.data.pokemonList);
       setIsLoading(false);
    }
-   getPokemons();
 
    async function handleBuySubmit(payload: any) {
       const token = storageToken();
@@ -40,7 +40,9 @@ function CardList({ money, setMoney }: Props) {
       const updatedMoney = money - diff;
       setMoney(() => updatedMoney);
    }
-
+   useEffectOnce(() => {
+      getPokemons();
+   });
    return (
       <div className={styles.container}>
          {!isLoading ? (
