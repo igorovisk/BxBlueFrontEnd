@@ -49,7 +49,7 @@ function WalletCard({
                   baseExperience: baseExperience,
                }
             );
-            console.log(res.data, "RES DARA");
+
             setPokemonInfo(res?.data);
          }
       } catch (err) {
