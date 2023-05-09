@@ -6,7 +6,7 @@ const token = storageToken();
 
 async function getUserMoneyFromDb() {
    const res = await axios.get(
-      "https://bxmonbackend.herokuapp.com/users/wallet",
+      "https://bxmon-backend.onrender.com/users/wallet",
       {
          headers: {
             ["x-access-token"]: token,

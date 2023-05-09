@@ -29,7 +29,7 @@ function Summary() {
 
    async function getTransactions() {
       const res = await axios.get(
-         "https://bxmonbackend.herokuapp.com/transactions",
+         "https://bxmon-backend.onrender.com/transactions",
          {
             headers: {
                ["x-access-token"]: token,

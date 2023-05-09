@@ -31,7 +31,7 @@ function WalletCardList({ money, setMoney }: Props) {
 
    async function getTransactions() {
       const res = await axios.get(
-         "https://bxmonbackend.herokuapp.com/transactions",
+         "https://bxmon-backend.onrender.com/transactions",
          {
             headers: {
                ["x-access-token"]: token,
@@ -47,7 +47,7 @@ function WalletCardList({ money, setMoney }: Props) {
 
    async function handleSellSubmit(transactionId: string) {
       const transactionResponse = await axios.post(
-         "https://bxmonbackend.herokuapp.com/transactions/pokemon/sell",
+         "https://bxmon-backend.onrender.com/transactions/pokemon/sell",
          { transactionId },
          {
             headers: {

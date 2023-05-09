@@ -43,7 +43,7 @@ function RegisterForm() {
       };
       try {
          await axios
-            .post("https://bxmonbackend.herokuapp.com/users/", newUser)
+            .post("https://bxmon-backend.onrender.com/users/", newUser)
             .then((res) => {
                setModalText("Usuário registrado com sucesso :D");
                setIsOpen(true);

@@ -17,7 +17,7 @@ function CardList({ money, setMoney }: Props) {
 
    async function getPokemons() {
       const res = await axios.get(
-         "https://bxmonbackend.herokuapp.com/pokemons"
+         "https://bxmon-backend.onrender.com/pokemons"
       );
       setPokemons(res.data.pokemonList);
       setIsLoading(false);
@@ -27,7 +27,7 @@ function CardList({ money, setMoney }: Props) {
       const token = storageToken();
 
       const transactionResponse = await axios.post(
-         "https://bxmonbackend.herokuapp.com/transactions/pokemon/buy",
+         "https://bxmon-backend.onrender.com/transactions/pokemon/buy",
          payload,
          {
             headers: {
